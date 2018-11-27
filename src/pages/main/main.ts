@@ -21,5 +21,7 @@ export class MainPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MainPage');
   }
-
+  public goBack(){
+    this.navCtrl.pop()
+  }
 }
