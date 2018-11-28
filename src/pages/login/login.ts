@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
+import { AppProvider } from '../../providers/app/app';
+import { Subscription } from 'rxjs/Subscription';
 
 /**
  * Generated class for the LoginPage page.
@@ -15,12 +17,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public loginObj:any = {username:"",password:""};
+  private loginResultSub:Subscription;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,private srv:AppProvider) {
   }
 
   ionViewDidLoad() {
-   // console.log('ionViewDidLoad LoginPage');
-   console.log(this.navParams.get('username'))
+   console.log('ionViewDidLoad LoginPage');
+  // console.log(this.navParams.get('username'))
+  }
+
+  public onSubmitPressed(){
+    console.log(this.loginObj);
+    this.loginResultSub = this.srv.sendToServer('http://vasudevkumaran.com/ang/login',this.loginObj).subscribe(data=>{
+        console.log(data)
+        let status:string = data.result;
+        if (status == 'OK'){
+          this.srv.saveLogin(data.data[0]);
+        }else{
+
+        }
+    });
   }
 
 }

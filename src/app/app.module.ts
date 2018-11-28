@@ -10,6 +10,8 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { MainPage } from '../pages/main/main';
 import { AddEditPage } from '../pages/add-edit/add-edit';
+import { AppProvider } from '../providers/app/app';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { AddEditPage } from '../pages/add-edit/add-edit';
     AddEditPage
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -36,7 +38,8 @@ import { AddEditPage } from '../pages/add-edit/add-edit';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AppProvider
   ]
 })
 export class AppModule {}
