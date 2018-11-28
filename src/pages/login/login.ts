@@ -27,6 +27,7 @@ export class LoginPage {
    console.log('ionViewDidLoad LoginPage');
   // console.log(this.navParams.get('username'))
   }
+  
 
   public onSubmitPressed(){
     console.log(this.loginObj);

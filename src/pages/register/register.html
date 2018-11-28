@@ -18,30 +18,30 @@
 
         <ion-item>
           <ion-label floating>Enter a Desired Username</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" [(ngModel)]="regObj.username"></ion-input>
         </ion-item>
     
         <ion-item>
           <ion-label floating>Enter a Password</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="regObj.password"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label floating>First name</ion-label>
-            <ion-input type="firstname"></ion-input>
+            <ion-input type="firstname" [(ngModel)]="regObj.firstname"></ion-input>
           </ion-item>
           <ion-item>
               <ion-label floating>Last name</ion-label>
-              <ion-input type="lastname"></ion-input>
+              <ion-input type="lastname" [(ngModel)]="regObj.lastname"></ion-input>
             </ion-item>
       </ion-list>
-      <ion-list radio-group>
+      <ion-list radio-group [(ngModel)]="regObj.gender">
           <ion-list-header>
             Gender
           </ion-list-header>
         
           <ion-item>
             <ion-label>Male</ion-label>
-            <ion-radio checked="true" value="1"></ion-radio>
+            <ion-radio value="1"></ion-radio>
           </ion-item>
         
           <ion-item>
@@ -55,17 +55,17 @@
               </ion-list-header>
             <ion-item>
                 <ion-label>Business</ion-label>
-                <ion-checkbox color="dark" checked="true"></ion-checkbox>
+                <ion-checkbox color="dark"   [(ngModel)]="regObj.is_business"></ion-checkbox>
               </ion-item>
               
               <ion-item>
                 <ion-label>Travel</ion-label>
-                <ion-checkbox color="dark"></ion-checkbox>
+                <ion-checkbox color="dark"  [(ngModel)]="regObj.is_travel"></ion-checkbox>
               </ion-item>
               <ion-item>
                   <ion-label>Holidays</ion-label>
-                  <ion-checkbox color="dark"></ion-checkbox>
+                  <ion-checkbox color="dark"  [(ngModel)]="regObj.is_holidays"></ion-checkbox>
                 </ion-item>
         </ion-list>
-      <button ion-button>Submit</button>
+      <button ion-button (click)="onSubmitPressed()">Submit</button>
 </ion-content>
