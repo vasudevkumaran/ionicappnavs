@@ -35,4 +35,13 @@ export class AppProvider {
 
   }
 
+  public getLogin(){
+    
+    //if (localStorage.getItem("user_id") != "-1"){
+        return {username:localStorage.getItem("user_name"),password:localStorage.getItem("user_password")}
+    //}else{
+    //  return {username:null,password:null}
+    //}
+  }
+
 }

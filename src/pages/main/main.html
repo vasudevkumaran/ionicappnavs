@@ -6,23 +6,28 @@
 -->
 <ion-header>
 
-    <ion-toolbar>
-        <ion-buttons start>
-            <button ion-button (click)="goBack()">
-                <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
-            </button>
-          </ion-buttons>
-        <ion-title>Main</ion-title>
-        <ion-buttons end>
-          <button ion-button icon-only color="royal" (click)="showMenu()">
-            <ion-icon name="person-add" ></ion-icon>
-          </button>
-        </ion-buttons>
-      </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button (click)="goBack()">
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Main</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only color="royal" (click)="showMenu()">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list *ngIf="listVisible">
+    <button ion-item *ngFor="let item of items" >
+      {{item.item_name}}
+    </button>  
+  </ion-list>
+  <button ion-button  (click)="toggleNgIf()">NgIf - {{listVisible}}</button>
 </ion-content>
